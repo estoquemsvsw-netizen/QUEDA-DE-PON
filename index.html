@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Aviso de Falha</title>
+    <title>Gerador de Aviso</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -149,4 +149,32 @@
         </select>
         
         <label for="clientes">Clientes Afetados:</label>
-        <input type="number" id="clientes
+        <input type="number" id="clientes">
+
+        <button onclick="gerarAviso()">Gerar Aviso</button>
+
+        <pre id="saida"></pre>
+    </div>
+
+    <script>
+        function gerarAviso() {
+            const transmissor = document.getElementById('transmissor').value;
+            const ponid = document.getElementById('ponid').value;
+            const queda = document.getElementById('queda').value;
+            const pop = document.getElementById('pop').value;
+            const clientes = document.getElementById('clientes').value;
+
+            const texto = `
+🚨 FALHA DETECTADA 
+
+Transmissor: ${transmissor}
+PON ID: ${ponid}
+Horário da Queda: ${queda}
+POP: ${pop}
+👥 Clientes Afetados: ${clientes}
+            `;
+            document.getElementById('saida').textContent = texto;
+        }
+    </script>
+</body>
+</html>
