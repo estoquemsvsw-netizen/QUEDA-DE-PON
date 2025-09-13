@@ -117,7 +117,7 @@
         <input type="text" id="ponid">
 
         <label for="queda">Horário da Queda:</label>
-       <input type="time" id="queda">
+        <input type="time" id="queda">
 
         <label for="pop">POP:</label>
         <select id="pop">
@@ -151,6 +151,9 @@
         <label for="clientes">Clientes Afetados:</label>
         <input type="number" id="clientes">
 
+        <label for="prazo">Prazo de normalização:</label>
+        <input type="text" id="prazo" placeholder="Ex: 15:30 ou 1h">
+
         <button onclick="gerarAviso()">Gerar Aviso</button>
 
         <pre id="saida"></pre>
@@ -163,15 +166,18 @@
             const queda = document.getElementById('queda').value;
             const pop = document.getElementById('pop').value;
             const clientes = document.getElementById('clientes').value;
+            const prazo = document.getElementById('prazo').value;
 
             const texto = `
-🚨 FALHA DETECTADA 
+🚨 FALHA DE INTERNET - POP ${pop}
 
-Transmissor: ${transmissor}
-PON ID: ${ponid}
-Horário da Queda: ${queda}
-POP: ${pop}
-👥 Clientes Afetados: ${clientes}
+• Transmissor: ${transmissor}
+• PON ID: ${ponid}
+• Início da queda: ${queda}
+• Clientes afetados: ${clientes}
+
+Técnicos em atendimento.
+Previsão de normalização: ${prazo || 'Sem previsão'}
             `;
             document.getElementById('saida').textContent = texto;
         }
