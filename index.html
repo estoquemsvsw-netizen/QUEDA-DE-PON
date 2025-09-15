@@ -169,15 +169,14 @@
             const prazo = document.getElementById('prazo').value;
 
             const texto = `
-🚨 FALHA DE INTERNET - POP ${pop}
+🚨 FALHA
 
-• Transmissor: ${transmissor}
-• PON ID: ${ponid}
-• Início da queda: ${queda}
-• Clientes afetados: ${clientes}
-
-Técnicos em atendimento.
-Previsão de normalização: ${prazo || 'Sem previsão'}
+📍 POP: ${pop}  
+🔗 Transmissor: ${transmissor}  
+🟢 PON ID: ${ponid}  
+⏱️ Horário da queda: ${queda}  
+👥 Clientes afetados: ${clientes}  
+📆 Previsão de normalização: ${prazo || 'Sem previsão'}
             `;
             document.getElementById('saida').textContent = texto;
         }
