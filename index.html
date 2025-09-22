@@ -121,32 +121,31 @@
 
         <label for="pop">POP:</label>
         <select id="pop">
-         <option value="">-- Selecione --</option>
-<option>ALCINOPOLIS-FLEXTEL</option>
-<option>BANDEIRANTES-FLEXTEL</option>
-<option>CAMPO NOBRE</option>
-<option>COXIM-FLEXTEL</option>
-<option>CORGUINHO-FLEXTEL</option>
-<option>JD AEROPORTO-FLEXTEL</option>
-<option>JD CAICARA-67INTERNET</option>
-<option>JD INAPOLIS-FLEXTEL</option>
-<option>JD TIJUCA FLEXTEL</option>
-<option>JD-PAULISTA-VIBE</option>
-<option>JARAGUARI-FLEXTEL</option>
-<option>NASSER-WIFINET</option>
-<option>NCG-WIFINET</option>
-<option>NOROESTE - VIBE</option>
-<option>RIO BRILHANTE-FLEXTEL</option>
-<option>RIO NEGRO</option>
-<option>RIOVERDE-FLEXTEL</option>
-<option>RITA VIEIRA-CONNECT</option>
-<option>ROCHEDO-VIBE</option>
-<option>SAO GABRIEL FLEXTEL</option>
-<option>SIDROLANDIA-FLEXTEL</option>
-<option>SONORA-FLEXTEL</option>
-<option>STA EMILIA-FLEXTEL</option>
-<option>STO AMARO-67INTERNET</option>
-
+            <option value="">-- Selecione --</option>
+            <option>ALCINOPOLIS-FLEXTEL</option>
+            <option>BANDEIRANTES-FLEXTEL</option>
+            <option>CAMPO NOBRE</option>
+            <option>COXIM-FLEXTEL</option>
+            <option>CORGUINHO-FLEXTEL</option>
+            <option>JD AEROPORTO-FLEXTEL</option>
+            <option>JD CAICARA-67INTERNET</option>
+            <option>JD INAPOLIS-FLEXTEL</option>
+            <option>JD TIJUCA FLEXTEL</option>
+            <option>JD-PAULISTA-VIBE</option>
+            <option>JARAGUARI-FLEXTEL</option>
+            <option>NASSER-WIFINET</option>
+            <option>NCG-WIFINET</option>
+            <option>NOROESTE - VIBE</option>
+            <option>RIO BRILHANTE-FLEXTEL</option>
+            <option>RIO NEGRO</option>
+            <option>RIOVERDE-FLEXTEL</option>
+            <option>RITA VIEIRA-CONNECT</option>
+            <option>ROCHEDO-VIBE</option>
+            <option>SAO GABRIEL FLEXTEL</option>
+            <option>SIDROLANDIA-FLEXTEL</option>
+            <option>SONORA-FLEXTEL</option>
+            <option>STA EMILIA-FLEXTEL</option>
+            <option>STO AMARO-67INTERNET</option>
         </select>
         
         <label for="clientes">Clientes Afetados:</label>
@@ -161,6 +160,55 @@
     </div>
 
     <script>
+        // Mapeamento de Transmissor -> POP
+        const mapaPOP = {
+            "ZTE_NASSER_WIFI": "NASSER-WIFINET",
+            "ZTE_CAIÇARA_67": "JD CAICARA-67INTERNET",
+            "ZTE_TIJUCA_FLEXTEL": "JD TIJUCA FLEXTEL",
+            "ZTE_STA_EMILIA_FLEXTEL": "STA EMILIA-FLEXTEL",
+            "FHTT_STA_EMILIA_FLEXTEL": "STA EMILIA-FLEXTEL",
+            "ZTE_INAPOLIS_FLEXTEL": "JD INAPOLIS-FLEXTEL",
+            "ZTE_NCG_WIFI": "NCG-WIFINET",
+            "FHTT_NCG_WIFI": "NCG-WIFINET",
+            "ZTE_AEROPORTO_FLEXTEL": "JD AEROPORTO-FLEXTEL",
+            "ZTE_STO_AMARO_FLEXTEL": "STO AMARO-67INTERNET",
+            "HWEI_RITA_VIEIRA_CONNECT": "RITA VIEIRA-CONNECT",
+            "HWEI_DHAMMA_CONNECT": "CAMPO NOBRE", 
+            "HWEI_CAMPO_NOBRE_JPNET": "CAMPO NOBRE",
+            "FHTT_JARAGUARI_FLEXTEL": "JARAGUARI-FLEXTEL",
+            "FHTT_BANDEIRANTES_FLEXTEL": "BANDEIRANTES-FLEXTEL",
+            "ZTE_SGO_FLEXTEL": "SAO GABRIEL FLEXTEL",
+            "ZTE_RIOBRILHANTE_FLEXTEL": "RIO BRILHANTE-FLEXTEL",
+            "ZTE_RIO_VERDE_FLEXTEL": "RIOVERDE-FLEXTEL",
+            "FHTT_COXIM_FLEXTEL": "COXIM-FLEXTEL",
+            "ZTE_SONORA_FLEXTEL": "SONORA-FLEXTEL",
+            "HWEI_RIONEGRO_FLEXTEL": "RIO NEGRO",
+            "HWEI_HOR_TOPNET": "JD-PAULISTA-VIBE", 
+            "HWEI_GND_TOPNET": "NOROESTE - VIBE",  
+            "HWEI_SE_TOPNET": "ROCHEDO-VIBE",      
+            "HWEI_CENTRAL_VIBE": "JD-PAULISTA-VIBE",
+            "HWEI_CARIOCA_VIBE": "NOROESTE - VIBE",
+            "HWEI_ROCHEDO_VIBE": "ROCHEDO-VIBE",
+            "HWEI_SID_FLEXTEL": "SIDROLANDIA-FLEXTEL",
+            "HWEI_NOROESTE_VIBE": "NOROESTE - VIBE",
+            "HWEI_CORGUINHO_VIBE": "CORGUINHO-FLEXTEL",
+            "ZTE_ALCINOPOLIS_FLEXTEL": "ALCINOPOLIS-FLEXTEL",
+            "ZTE_FIGUEIRAO_FIBRAPLUS": "CAMPO NOBRE",
+            "VSOL_NOVAESPERANCA_FLEXTEL": "CAMPO NOBRE"
+        };
+
+        // Atualiza POP quando selecionar transmissor
+        document.getElementById('transmissor').addEventListener('change', function() {
+            const transmissor = this.value;
+            const popSelect = document.getElementById('pop');
+
+            if (mapaPOP[transmissor]) {
+                popSelect.value = mapaPOP[transmissor];
+            } else {
+                popSelect.value = "";
+            }
+        });
+
         function gerarAviso() {
             const transmissor = document.getElementById('transmissor').value;
             const ponid = document.getElementById('ponid').value;
@@ -170,10 +218,9 @@
             const prazo = document.getElementById('prazo').value;
 
             const texto = `
-🚨 FALHA
-
-📍 POP: ${pop}  
-🔗 Transmissor: ${transmissor}  
+FALHA
+POP: ${pop}  
+Transmissor: ${transmissor}  
 🟢 PON ID: ${ponid}  
 ⏱️ Horário da queda: ${queda}  
 👥 Clientes afetados: ${clientes}  
