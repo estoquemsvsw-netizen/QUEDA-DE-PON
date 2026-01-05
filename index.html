@@ -133,7 +133,6 @@ function gerarAviso() {
 
     const transmissor = document.getElementById('transmissor').value;
     const pon = document.getElementById('pon').value;
-    const data = document.getElementById('data').value;
     const queda = document.getElementById('queda').value || '00h00min00sec';
     const clientes = document.getElementById('clientes').value;
     const prazo = document.getElementById('prazo').value || 'Sem previsão';
@@ -142,19 +141,15 @@ function gerarAviso() {
     const geradoEm = agora.toLocaleString('pt-BR');
 
     const texto = `
-COMUNICADO DE FALHA
+⚠️ FALHA ⚠️
 
 Transmissor: ${transmissor}
 PON: ${pon}
-
-Data da ocorrência: ${data}
 Queda: ${queda}
 Clientes afetados: ${clientes}
 
 Previsão de normalização: ${prazo}
 
-Gerado em: ${geradoEm}
-Responsável: NOC
     `.trim();
 
     document.getElementById('saida').textContent = texto;
