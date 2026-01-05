@@ -7,29 +7,29 @@
         body {
             font-family: Arial, sans-serif;
             background-color: #121212;
-            color: #fff;
+            color: #e0e0e0;
             display: flex;
             justify-content: center;
-            align-items: flex-start;
             padding: 40px;
         }
         .container {
-            background: #1f1f1f;
+            background: #1e1e1e;
             padding: 25px;
-            border-radius: 12px;
+            border-radius: 10px;
             width: 420px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
         }
         h2 {
             text-align: center;
             margin-bottom: 20px;
-            color: #ff5555;
+            color: #cfd8dc;
+            letter-spacing: 1px;
         }
         label {
             display: block;
             margin-top: 12px;
             font-weight: bold;
-            color: #ddd;
+            color: #b0bec5;
         }
         input, select {
             width: 100%;
@@ -38,196 +38,85 @@
             border: none;
             border-radius: 6px;
             background: #2a2a2a;
-            color: #fff;
+            color: #ffffff;
             font-size: 14px;
         }
         input:focus, select:focus {
-            outline: 2px solid #ff5555;
+            outline: 2px solid #546e7a;
         }
         button {
             margin-top: 20px;
             padding: 12px;
             width: 100%;
-            background: #ff5555;
+            background: #37474f;
             border: none;
-            color: white;
-            font-size: 16px;
+            color: #ffffff;
+            font-size: 15px;
             font-weight: bold;
-            border-radius: 8px;
+            border-radius: 6px;
             cursor: pointer;
-            transition: 0.3s;
+            transition: 0.2s;
         }
         button:hover {
-            background: #cc4444;
+            background: #455a64;
         }
         pre {
-            background: #0d0d0d;
+            background: #0f0f0f;
             padding: 15px;
-            border-radius: 10px;
+            border-radius: 8px;
             margin-top: 20px;
             white-space: pre-wrap;
             font-size: 14px;
-            line-height: 1.4em;
+            line-height: 1.5em;
+            border-left: 4px solid #455a64;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Gerador de Aviso</h2>
 
-        <label for="transmissor">Transmissor:</label>
-        <select id="transmissor">
-            <option value="">-- Selecione --</option>
-            <option>ZTE_NASSER_WIFI</option>
-            <option>ZTE_CAIÇARA_67</option>
-            <option>ZTE_TIJUCA_FLEXTEL</option>
-            <option>ZTE_STA_EMILIA_FLEXTEL</option>
-            <option>FHTT_STA_EMILIA_FLEXTEL</option>
-            <option>ZTE_INAPOLIS_FLEXTEL</option>
-            <option>ZTE_NCG_WIFI</option>
-            <option>FHTT_NCG_WIFI</option>
-            <option>ZTE_AEROPORTO_FLEXTEL</option>
-            <option>ZTE_STO_AMARO_FLEXTEL</option>
-            <option>HWEI_RITA_VIEIRA_CONNECT</option>
-            <option>HWEI_DHAMMA_CONNECT</option>
-            <option>HWEI_CAMPO_NOBRE_JPNET</option>
-            <option>FHTT_JARAGUARI_FLEXTEL</option>
-            <option>FHTT_BANDEIRANTES_FLEXTEL</option>
-            <option>ZTE_SGO_FLEXTEL</option>
-            <option>ZTE_RIOBRILHANTE_FLEXTEL</option>
-            <option>ZTE_RIO_VERDE_FLEXTEL</option>
-            <option>FHTT_COXIM_FLEXTEL</option>
-            <option>ZTE_SONORA_FLEXTEL</option>
-            <option>HWEI_RIONEGRO_FLEXTEL</option>
-            <option>HWEI_HOR_TOPNET</option>
-            <option>HWEI_GND_TOPNET</option>
-            <option>HWEI_SE_TOPNET</option>
-            <option>HWEI_CENTRAL_VIBE</option>
-            <option>HWEI_CARIOCA_VIBE</option>
-            <option>HWEI_ROCHEDO_VIBE</option>
-            <option>HWEI_SID_FLEXTEL</option>
-            <option>HWEI_NOROESTE_VIBE</option>
-            <option>HWEI_CORGUINHO_VIBE</option>
-            <option>ZTE_ALCINOPOLIS_FLEXTEL</option>
-            <option>ZTE_FIGUEIRAO_FIBRAPLUS</option>
-            <option>VSOL_NOVAESPERANCA_FLEXTEL</option>
-        </select>
+<div class="container">
+    <h2>COMUNICADO DE FALHA</h2>
 
-        <label for="ponid">PON ID:</label>
-        <input type="text" id="ponid">
+    <label for="transmissor">Transmissor:</label>
+    <select id="transmissor">
+        <option value="">-- Selecione --</option>
+        <option>HWEI_CAMPO_NOBRE_JPNET</option>
+        <option>ZTE_STA_EMILIA_FLEXTEL</option>
+        <option>ZTE_INAPOLIS_FLEXTEL</option>
+        <option>HWEI_RIONEGRO_FLEXTEL</option>
+        <option>VSOL_NOVAESPERANCA_FLEXTEL</option>
+    </select>
 
-        <label for="queda">Horário da Queda:</label>
-        <input type="time" id="queda">
+    <label for="ponid">PON:</label>
+    <input type="text" id="ponid" placeholder="Ex: 2/4">
 
-        <label for="pop">POP:</label>
-        <select id="pop">
-            <option value="">-- Selecione --</option>
-            <option>ALCINOPOLIS-FLEXTEL</option>
-            <option>BANDEIRANTES-FLEXTEL</option>
-            <option>CAMPO NOBRE</option>
-            <option>COXIM-FLEXTEL</option>
-            <option>CORGUINHO-FLEXTEL</option>
-            <option>JD AEROPORTO-FLEXTEL</option>
-            <option>JD CAICARA-67INTERNET</option>
-            <option>JD INAPOLIS-FLEXTEL</option>
-            <option>JD TIJUCA FLEXTEL</option>
-            <option>JD-PAULISTA-VIBE</option>
-            <option>JARAGUARI-FLEXTEL</option>
-            <option>NASSER-WIFINET</option>
-            <option>NCG-WIFINET</option>
-            <option>NOROESTE - VIBE</option>
-            <option>RIO BRILHANTE-FLEXTEL</option>
-            <option>RIO NEGRO</option>
-            <option>RIOVERDE-FLEXTEL</option>
-            <option>RITA VIEIRA-CONNECT</option>
-            <option>ROCHEDO-VIBE</option>
-            <option>SAO GABRIEL FLEXTEL</option>
-            <option>SIDROLANDIA-FLEXTEL</option>
-            <option>SONORA-FLEXTEL</option>
-            <option>STA EMILIA-FLEXTEL</option>
-            <option>STO AMARO-67INTERNET</option>
-        </select>
-        
-        <label for="clientes">Clientes Afetados:</label>
-        <input type="number" id="clientes">
+    <label for="queda">Horário da ocorrência:</label>
+    <input type="time" id="queda">
 
-        <label for="prazo">Prazo de normalização:</label>
-        <input type="text" id="prazo" placeholder="Ex: 15:30 ou 1h">
+    <label for="clientes">Clientes afetados:</label>
+    <input type="number" id="clientes">
 
-        <button onclick="gerarAviso()">Gerar Aviso</button>
+    <label for="prazo">Previsão de normalização:</label>
+    <input type="text" id="prazo" placeholder="Ex: até 6 horas">
 
-        <pre id="saida"></pre>
-    </div>
+    <button onclick="gerarAviso()">Gerar Aviso</button>
 
-    <script>
-        // Mapeamento de Transmissor -> POP
-        const mapaPOP = {
-            "ZTE_NASSER_WIFI": "NASSER-WIFINET",
-            "ZTE_CAIÇARA_67": "JD CAICARA-67INTERNET",
-            "ZTE_TIJUCA_FLEXTEL": "JD TIJUCA FLEXTEL",
-            "ZTE_STA_EMILIA_FLEXTEL": "STA EMILIA-FLEXTEL",
-            "FHTT_STA_EMILIA_FLEXTEL": "STA EMILIA-FLEXTEL",
-            "ZTE_INAPOLIS_FLEXTEL": "JD INAPOLIS-FLEXTEL",
-            "ZTE_NCG_WIFI": "NCG-WIFINET",
-            "FHTT_NCG_WIFI": "NCG-WIFINET",
-            "ZTE_AEROPORTO_FLEXTEL": "JD AEROPORTO-FLEXTEL",
-            "ZTE_STO_AMARO_FLEXTEL": "STO AMARO-67INTERNET",
-            "HWEI_RITA_VIEIRA_CONNECT": "RITA VIEIRA-CONNECT",
-            "HWEI_DHAMMA_CONNECT": "CAMPO NOBRE", 
-            "HWEI_CAMPO_NOBRE_JPNET": "CAMPO NOBRE",
-            "FHTT_JARAGUARI_FLEXTEL": "JARAGUARI-FLEXTEL",
-            "FHTT_BANDEIRANTES_FLEXTEL": "BANDEIRANTES-FLEXTEL",
-            "ZTE_SGO_FLEXTEL": "SAO GABRIEL FLEXTEL",
-            "ZTE_RIOBRILHANTE_FLEXTEL": "RIO BRILHANTE-FLEXTEL",
-            "ZTE_RIO_VERDE_FLEXTEL": "RIOVERDE-FLEXTEL",
-            "FHTT_COXIM_FLEXTEL": "COXIM-FLEXTEL",
-            "ZTE_SONORA_FLEXTEL": "SONORA-FLEXTEL",
-            "HWEI_RIONEGRO_FLEXTEL": "RIO NEGRO",
-            "HWEI_HOR_TOPNET": "JD-PAULISTA-VIBE", 
-            "HWEI_GND_TOPNET": "NOROESTE - VIBE",  
-            "HWEI_SE_TOPNET": "ROCHEDO-VIBE",      
-            "HWEI_CENTRAL_VIBE": "JD-PAULISTA-VIBE",
-            "HWEI_CARIOCA_VIBE": "NOROESTE - VIBE",
-            "HWEI_ROCHEDO_VIBE": "ROCHEDO-VIBE",
-            "HWEI_SID_FLEXTEL": "SIDROLANDIA-FLEXTEL",
-            "HWEI_NOROESTE_VIBE": "NOROESTE - VIBE",
-            "HWEI_CORGUINHO_VIBE": "CORGUINHO-FLEXTEL",
-            "ZTE_ALCINOPOLIS_FLEXTEL": "ALCINOPOLIS-FLEXTEL",
-            "ZTE_FIGUEIRAO_FIBRAPLUS": "CAMPO NOBRE",
-            "VSOL_NOVAESPERANCA_FLEXTEL": "CAMPO NOBRE"
-        };
+    <pre id="saida"></pre>
+</div>
 
-        // Atualiza POP quando selecionar transmissor
-        document.getElementById('transmissor').addEventListener('change', function() {
-            const transmissor = this.value;
-            const popSelect = document.getElementById('pop');
+<script>
+function gerarAviso() {
+    const transmissor = document.getElementById('transmissor').value;
+    const ponid = document.getElementById('ponid').value;
+    const queda = document.getElementById('queda').value;
+    const clientes = document.getElementById('clientes').value;
+    const prazo = document.getElementById('prazo').value || 'Sem previsão';
 
-            if (mapaPOP[transmissor]) {
-                popSelect.value = mapaPOP[transmissor];
-            } else {
-                popSelect.value = "";
-            }
-        });
+    const texto = `
+COMUNICADO DE FALHA
 
-        function gerarAviso() {
-            const transmissor = document.getElementById('transmissor').value;
-            const ponid = document.getElementById('ponid').value;
-            const queda = document.getElementById('queda').value;
-            const pop = document.getElementById('pop').value;
-            const clientes = document.getElementById('clientes').value;
-            const prazo = document.getElementById('prazo').value;
+Transmissor: ${transmissor}
+PON: ${ponid}
 
-            const texto = `
-FALHA
-POP: ${pop}  
-Transmissor: ${transmissor}  
-🟢 PON ID: ${ponid}  
-⏱️ Horário da queda: ${queda}  
-👥 Clientes afetados: ${clientes}  
-📆 Previsão de normalização: ${prazo || 'Sem previsão'}
-            `;
-            document.getElementById('saida').textContent = texto;
-        }
-    </script>
-</body>
-</html>
+Horário da
+ml>
